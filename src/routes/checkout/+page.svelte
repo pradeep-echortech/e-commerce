@@ -24,6 +24,7 @@
 	}
 </script>
 
+{#if loggedinUser}
 <h1 class="py-3">checkout</h1>
 
 <table class="table" id="check">
@@ -38,7 +39,7 @@
 	<tbody>
 		{#each crdbody as bdy}
 			<tr>
-				<td>{bdy.id}</td>
+				<td>{bdy.productid}</td>
 				<td>{bdy.name}</td>
 				<td>$ {bdy.price}</td>
 				<td><button class="btn btn-danger" on:click={remove(bdy.id)}>Remove</button></td>
@@ -47,3 +48,8 @@
 	</tbody>
 </table>
 <div class="d-flex justify-content-end w-100"><h1 class="me-5">Total= $ {totalCount}</h1></div>
+{/if}
+{#if !loggedinUser}
+<h1 class="m-5">Please Login to get access</h1>
+<a class="btn btn-primary text-center mx-5" href="/login">Login</a>
+{/if}

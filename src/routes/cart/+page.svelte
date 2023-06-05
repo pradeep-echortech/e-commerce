@@ -30,8 +30,9 @@
 	// })();
 </script>
 
+{#if loggedinUser}
 <div class="d-flex justify-content-end">
-	<a class="btn btn-success mx-3 mt-3" href="/">Home</a>
+	<a class="btn btn-success mx-3 mt-3" href="/products">Back</a>
 	<a class="btn btn-success mx-3 mt-3" target="_blank" href="/checkout">Checkout</a>
 </div>
 <h1 class="ms-4">Your cart<i class="fa-solid fa-cart-shopping mx-1" /></h1>
@@ -53,3 +54,8 @@
 		{/each}
 	</div>
 </div>
+{/if}
+{#if !loggedinUser}
+<h1 class="m-5">Please Login to get access</h1>
+<a class="btn btn-primary text-center mx-5" href="/login">Login</a>
+{/if}

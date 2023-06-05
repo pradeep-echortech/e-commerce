@@ -5,7 +5,7 @@
 		if(page <= 5){
 			let res = await fetch(`http://localhost:3000/products?_page=${page}&_limit=10`)
 			.then((res) => res.json())
-			.then((res) => res);
+			.then((res) => res);	
 			crdbody = [...res];
 			pageno += 1;
 		}else{
@@ -26,6 +26,10 @@
 		Getdatafromjson();
 	})();
 	let crdbody = [];
+	(() => {
+		if(typeof window=='undefined')return
+		localStorage.clear('loginuser');
+	})();
 </script>
 
 <Defaultnav />
